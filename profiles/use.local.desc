@@ -65,4 +65,7 @@ app-leechcraft/lc-poshuku:speeddial - Build SpeedDial module.
 app-leechcraft/lc-poshuku:webengine - Build WebEngine- (that is, Chromium-)based rendering backend.
 app-leechcraft/lc-secman:exposecontents - Build the GUI for viewing the stored data.
 app-leechcraft/leechcraft-meta:de - Install components that allow using LeechCraft as Desktop Environment
+dev-libs/vmime:pop3 - Enable POP3 protocol.
+dev-libs/vmime:sendmail - Enable Sendmail protocol.
+dev-libs/vmime:smtp - Enable SMTP protocol.
 net-libs/qxmpp:vpx - Enable VP8 codec support via media-libs/libvpx
