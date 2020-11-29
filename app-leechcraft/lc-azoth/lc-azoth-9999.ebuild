@@ -9,7 +9,7 @@ DESCRIPTION="Azoth, the modular IM client for LeechCraft"
 
 SLOT="0"
 KEYWORDS=""
-IUSE="debug doc +acetamide +adiumstyles astrality +autoidler +autopaste +birthdaynotifier
+IUSE="debug doc +acetamide +adiumstyles +autoidler +autopaste +birthdaynotifier
 	+chathistory +crypt +depester +embedmedia +herbicide +hili +isterique +juick
 	+keeso +lastseen +latex media +metacontacts +murm +nativeemoticons +otroid sarin
 	shx +spell +standardstyles +vader velvetbird +woodpecker +xmpp +xtazy"
@@ -23,7 +23,6 @@ COMMON_DEPEND="
 	dev-qt/qtsql:5
 	dev-qt/qtwebkit:5
 	dev-qt/qtxml:5
-	astrality? ( net-libs/telepathy-qt[qt5(+)] )
 	autoidler? (
 		dev-qt/qtx11extras:5
 		x11-libs/libXScrnSaver
@@ -51,10 +50,6 @@ DEPEND="${COMMON_DEPEND}
 "
 RDEPEND="${COMMON_DEPEND}
 	dev-qt/qtsql:5[sqlite]
-	astrality? (
-		net-im/telepathy-mission-control
-		net-voip/telepathy-haze
-	)
 	crypt? ( app-crypt/qca:2[gpg] )
 	latex? (
 		virtual/imagemagick-tools
@@ -69,7 +64,6 @@ src_configure() {
 		-DWITH_DOCS=$(usex doc)
 		-DENABLE_AZOTH_ACETAMIDE=$(usex acetamide)
 		-DENABLE_AZOTH_ADIUMSTYLES=$(usex adiumstyles)
-		-DENABLE_AZOTH_ASTRALITY=$(usex astrality)
 		-DENABLE_AZOTH_AUTOIDLER=$(usex autoidler)
 		-DENABLE_AZOTH_AUTOPASTE=$(usex autopaste)
 		-DENABLE_AZOTH_BIRTHDAYNOTIFIER=$(usex birthdaynotifier)
