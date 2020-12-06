@@ -21,6 +21,7 @@ DEPEND="
 	dev-qt/qtxml:5
 	media-libs/gstreamer:1.0
 	media-libs/taglib
+	fradj? ( x11-libs/qwt:6 )
 	mpris? ( dev-qt/qtdbus:5 )
 	mtp? ( media-libs/libmtp:= )
 	potorchu? ( media-libs/libprojectm:= )

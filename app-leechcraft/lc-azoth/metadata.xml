@@ -12,7 +12,6 @@
 	<use>
 		<flag name="acetamide">Build Acetamide, the IRC protocol support</flag>
 		<flag name="adiumstyles">Build support for Adium styles</flag>
-		<flag name="astrality">Build Astrality, support for protocols provided by Telepathy</flag>
 		<flag name="autoidler">Build support for automatic status changing according to user idle time</flag>
 		<flag name="autopaste">Build Autopaste for pasting long texts to pastebins</flag>
 		<flag name="birthdaynotifier">Build Birthday Notifier for you to not forget about birthdays of your contacts.</flag>
