@@ -12,17 +12,14 @@ SRC_URI="https://github.com/${PN}-project/${PN}/archive/v${PV}.tar.gz -> ${P}.ta
 LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS="amd64 x86"
-IUSE="debug doc opus +speex test theora vpx"
+IUSE="debug doc +gstreamer test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
 	dev-qt/qtcore:5
 	dev-qt/qtnetwork:5[ssl]
 	dev-qt/qtxml:5
-	opus? ( media-libs/opus )
-	speex? ( media-libs/speex )
-	theora? ( media-libs/libtheora )
-	vpx? ( media-libs/libvpx:= )
+	gstreamer? ( media-libs/gstreamer )
 "
 DEPEND="${RDEPEND}
 	test? ( dev-qt/qttest:5 )
@@ -48,11 +45,7 @@ src_configure() {
 		-DBUILD_DOCUMENTATION=$(usex doc)
 		-DBUILD_EXAMPLES=OFF
 		-DBUILD_TESTS=$(usex test)
-		-DBUILD_INTERNAL_TESTS=$(usex test)
-		-DWITH_OPUS=$(usex opus)
-		-DWITH_SPEEX=$(usex speex)
-		-DWITH_THEORA=$(usex theora)
-		-DWITH_VPX=$(usex vpx)
+		-DWITH_GSTREAMER=$(usex gstreamer)
 	)
 
 	cmake_src_configure
