@@ -18,8 +18,8 @@ DEPEND="~app-leechcraft/lc-core-${PV}
 RDEPEND="${DEPEND}"
 
 pkg_postinst() {
-	if ! has_version app-leechcraft/lc-qrosp || ! has_version dev-libs/qrosspython; then
+	if ! has_version app-leechcraft/lc-qrosp ; then
 		einfo "XProxy supports scriptable host lists to match, for example, against all sites in RosKomNadzor registry."
-		einfo "Install app-lc/lc-qrosp and dev-libs/qrosspython to support these."
+		einfo "Install app-lc/lc-qrosp to support these."
 	fi
 }
