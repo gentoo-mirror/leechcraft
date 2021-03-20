@@ -76,6 +76,7 @@ src_configure() {
 		-DENABLE_HARU=$(usex pdf)
 		-DENABLE_MYSQL=$(usex mysql)
 		-DENABLE_POSTGRES=$(usex postgres)
+		-DENABLE_QT4=OFF
 		-DENABLE_SQLITE=$(usex sqlite)
 		-DENABLE_SSL=$(usex ssl)
 		-DCONNECTOR_FCGI=$(usex fcgi)
