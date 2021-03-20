@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 2000-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -13,7 +13,7 @@ SRC_URI="https://github.com/kdeforche/wt/archive/${PV}.tar.gz"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="fcgi mysql pdf postgres resources +server +ssl +sqlite test"
+IUSE="fcgi firebird graphicsmagick mysql pdf postgres qt5 resources +server +ssl +sqlite test"
 
 RDEPEND="
 	dev-libs/boost:=
@@ -21,8 +21,11 @@ RDEPEND="
 		media-libs/libharu
 		x11-libs/pango
 	)
+	firebird? ( dev-db/firebird )
+	graphicsmagick? ( media-gfx/graphicsmagick )
 	postgres? ( dev-db/postgresql:* )
 	mysql? ( virtual/mysql )
+	qt5? ( dev-qt/qtcore:5 )
 	sqlite? ( dev-db/sqlite:3 )
 	fcgi? (
 		dev-libs/fcgi
@@ -73,10 +76,13 @@ src_configure() {
 		-DUSE_SYSTEM_SQLITE3=ON
 		-DWEBUSER=wt
 		-DWEBGROUP=wt
+		-DWT_WRASTERIMAGE_IMPLEMENTATION=$(usex graphicsmagick GraphicsMagick none)
+		-DENABLE_FIREBIRD=$(usex firebird)
 		-DENABLE_HARU=$(usex pdf)
 		-DENABLE_MYSQL=$(usex mysql)
 		-DENABLE_POSTGRES=$(usex postgres)
 		-DENABLE_QT4=OFF
+		-DENABLE_QT5=$(usex qt5)
 		-DENABLE_SQLITE=$(usex sqlite)
 		-DENABLE_SSL=$(usex ssl)
 		-DCONNECTOR_FCGI=$(usex fcgi)
