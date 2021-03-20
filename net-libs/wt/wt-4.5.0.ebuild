@@ -100,16 +100,6 @@ src_test() {
 	fi
 }
 
-src_install() {
-
-	dodir \
-		/var/lib/wt \
-		/var/lib/wt/home
-
-	cmake-utils_src_install
-
-}
-
 pkg_postinst() {
 	if use fcgi; then
 		elog "You selected fcgi support. Please make sure that the web-server"
@@ -117,12 +107,4 @@ pkg_postinst() {
 		elog "You can use spawn-fcgi to spawn the witty-processes and run them"
 		elog "in a chroot environment."
 	fi
-
-	chown -R wt:wt \
-		"${ROOT}"/var/lib/wt
-
-	chmod 0750 \
-		"${ROOT}"/var/lib/wt \
-		"${ROOT}"/var/lib/wt/home
-
 }
