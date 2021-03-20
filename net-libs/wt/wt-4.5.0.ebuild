@@ -13,7 +13,7 @@ SRC_URI="https://github.com/kdeforche/wt/archive/${PV}.tar.gz"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="doc fcgi mysql pdf postgres resources +server ssl +sqlite test"
+IUSE="fcgi mysql pdf postgres resources +server +ssl +sqlite test"
 
 RDEPEND="
 	>=dev-libs/boost-1.41
@@ -107,8 +107,6 @@ src_install() {
 		/var/lib/wt/home
 
 	cmake-utils_src_install
-
-	use doc && dohtml -A pdf,xhtml -r doc/*
 
 }
 
