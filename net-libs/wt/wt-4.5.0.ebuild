@@ -16,7 +16,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE="fcgi mysql pdf postgres resources +server +ssl +sqlite test"
 
 RDEPEND="
-	>=dev-libs/boost-1.41
+	dev-libs/boost:=
 	pdf? (
 		media-libs/libharu
 		x11-libs/pango
@@ -64,11 +64,6 @@ src_prepare() {
 }
 
 src_configure() {
-	BOOST_PKG="$(best_version ">=dev-libs/boost-1.41.0")"
-	BOOST_VER="$(get_version_component_range 1-2 "${BOOST_PKG/*boost-/}")"
-	BOOST_VER="$(replace_all_version_separators _ "${BOOST_VER}")"
-	BOOST_INC="/usr/include/boost-${BOOST_VER}"
-
 	local mycmakeargs=(
 		-DDESTDIR="${D}"
 		-DLIB_INSTALL_DIR=$(get_libdir)
