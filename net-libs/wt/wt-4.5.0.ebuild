@@ -1,9 +1,9 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="6"
+EAPI=7
 
-inherit cmake-utils versionator eutils user
+inherit cmake eutils user
 
 DESCRIPTION="C++ library for developing interactive web applications."
 MY_P=${P/_/-}
@@ -60,7 +60,7 @@ src_prepare() {
 			-i cmake/WtFindHaru.txt || die
 	fi
 
-	cmake-utils_src_prepare
+	cmake_src_prepare
 }
 
 src_configure() {
@@ -88,7 +88,7 @@ src_configure() {
 		-DBUILD_EXAMPLES=OFF
 	)
 
-	cmake-utils_src_configure
+	cmake_src_configure
 }
 
 src_test() {
