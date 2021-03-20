@@ -13,16 +13,15 @@ SRC_URI="https://github.com/kdeforche/wt/archive/${PV}.tar.gz"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="doc +extjs fcgi graphicsmagick mysql pdf postgres resources +server ssl +sqlite test zlib"
+IUSE="doc fcgi mysql pdf postgres resources +server ssl +sqlite test"
 
 RDEPEND="
 	>=dev-libs/boost-1.41
-	graphicsmagick? ( media-gfx/graphicsmagick )
 	pdf? (
 		media-libs/libharu
 		x11-libs/pango
 	)
-	postgres? ( dev-db/postgresql )
+	postgres? ( dev-db/postgresql:* )
 	mysql? ( virtual/mysql )
 	sqlite? ( dev-db/sqlite:3 )
 	fcgi? (
@@ -31,14 +30,9 @@ RDEPEND="
 	)
 	server? (
 		ssl? ( dev-libs/openssl )
-		zlib? ( sys-libs/zlib )
 	)
+	sys-libs/zlib
 "
-DEPEND="
-		${RDEPEND}
-		>=dev-util/cmake-2.6
-"
-
 DOCS="Changelog INSTALL"
 S=${WORKDIR}/${MY_P}
 
@@ -84,17 +78,13 @@ src_configure() {
 		-DUSE_SYSTEM_SQLITE3=ON
 		-DWEBUSER=wt
 		-DWEBGROUP=wt
-		-DENABLE_EXT=$(usex extjs)
-		-DENABLE_GM=$(usex graphicsmagick)
 		-DENABLE_HARU=$(usex pdf)
+		-DENABLE_MYSQL=$(usex mysql)
 		-DENABLE_POSTGRES=$(usex postgres)
 		-DENABLE_SQLITE=$(usex sqlite)
-		-DENABLE_MYSQL=$(usex mysql)
+		-DENABLE_SSL=$(usex ssl)
 		-DCONNECTOR_FCGI=$(usex fcgi)
 		-DCONNECTOR_HTTP=$(usex server)
-		-DWT_WITH_SSL=$(usex ssl)
-		-DHTTP_WITH_ZLIB=$(usex zlib)
-		-DINSTALL_RESOURCES=$(usex resources)
 		-DBUILD_EXAMPLES=OFF
 	)
 
