@@ -11,7 +11,7 @@ SLOT="0"
 KEYWORDS=""
 IUSE="debug doc +acetamide +adiumstyles +autoidler +autopaste +birthdaynotifier
 	+chathistory +crypt +depester +embedmedia +herbicide +hili +isterique +juick
-	+keeso +lastseen +latex media +metacontacts +murm +nativeemoticons +otroid sarin
+	+keeso +lastseen +latex +metacontacts +murm +nativeemoticons +otroid sarin
 	shx +spell +standardstyles +vader velvetbird +woodpecker +xmpp +xtazy"
 
 REQUIRED_USE="|| ( standardstyles adiumstyles )"
@@ -29,7 +29,6 @@ COMMON_DEPEND="
 	)
 	crypt? ( app-crypt/qca:2[qt5(+)] )
 	lastseen? ( dev-qt/qtconcurrent:5 )
-	media? ( dev-qt/qtmultimedia:5 )
 	otroid? (
 		dev-qt/qtconcurrent:5
 		net-libs/libotr
@@ -41,7 +40,6 @@ COMMON_DEPEND="
 	woodpecker? ( dev-libs/kqoauth )
 	xmpp? (
 		>=net-libs/qxmpp-1.2.0
-		media? ( net-libs/qxmpp[speex] )
 	)
 	xtazy? ( ~app-leechcraft/lc-xtazy-${PV} )
 "
@@ -78,7 +76,7 @@ src_configure() {
 		-DENABLE_AZOTH_LASTSEEN=$(usex lastseen)
 		-DENABLE_AZOTH_MODNOK=$(usex latex)
 		-DENABLE_AZOTH_METACONTACTS=$(usex metacontacts)
-		-DENABLE_MEDIACALLS=$(usex media)
+		-DENABLE_MEDIACALLS=OFF
 		-DENABLE_AZOTH_MURM=$(usex murm)
 		-DENABLE_AZOTH_NATIVEEMOTICONS=$(usex nativeemoticons)
 		-DENABLE_AZOTH_OTROID=$(usex otroid)

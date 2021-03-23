@@ -1,10 +1,9 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 2000-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-libs/wt/wt-3.3.1.ebuild,v 1.3 2013/11/16 09:42:54 mattm Exp $
 
-EAPI="6"
+EAPI=7
 
-inherit cmake-utils versionator eutils user
+inherit cmake eutils user
 
 DESCRIPTION="C++ library for developing interactive web applications."
 MY_P=${P/_/-}
@@ -14,17 +13,19 @@ SRC_URI="https://github.com/kdeforche/wt/archive/${PV}.tar.gz"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="doc +extjs fcgi graphicsmagick mysql pdf postgres resources +server ssl +sqlite test zlib"
+IUSE="fcgi firebird graphicsmagick mysql pdf postgres qt5 resources +server +ssl +sqlite test"
 
 RDEPEND="
-	>=dev-libs/boost-1.41
-	graphicsmagick? ( media-gfx/graphicsmagick )
+	dev-libs/boost:=
 	pdf? (
 		media-libs/libharu
 		x11-libs/pango
 	)
-	postgres? ( dev-db/postgresql )
+	firebird? ( dev-db/firebird )
+	graphicsmagick? ( media-gfx/graphicsmagick )
+	postgres? ( dev-db/postgresql:* )
 	mysql? ( virtual/mysql )
+	qt5? ( dev-qt/qtcore:5 )
 	sqlite? ( dev-db/sqlite:3 )
 	fcgi? (
 		dev-libs/fcgi
@@ -32,14 +33,9 @@ RDEPEND="
 	)
 	server? (
 		ssl? ( dev-libs/openssl )
-		zlib? ( sys-libs/zlib )
 	)
+	sys-libs/zlib
 "
-DEPEND="
-		${RDEPEND}
-		>=dev-util/cmake-2.6
-"
-
 DOCS="Changelog INSTALL"
 S=${WORKDIR}/${MY_P}
 
@@ -67,15 +63,10 @@ src_prepare() {
 			-i cmake/WtFindHaru.txt || die
 	fi
 
-	cmake-utils_src_prepare
+	cmake_src_prepare
 }
 
 src_configure() {
-	BOOST_PKG="$(best_version ">=dev-libs/boost-1.41.0")"
-	BOOST_VER="$(get_version_component_range 1-2 "${BOOST_PKG/*boost-/}")"
-	BOOST_VER="$(replace_all_version_separators _ "${BOOST_VER}")"
-	BOOST_INC="/usr/include/boost-${BOOST_VER}"
-
 	local mycmakeargs=(
 		-DDESTDIR="${D}"
 		-DLIB_INSTALL_DIR=$(get_libdir)
@@ -85,21 +76,21 @@ src_configure() {
 		-DUSE_SYSTEM_SQLITE3=ON
 		-DWEBUSER=wt
 		-DWEBGROUP=wt
-		-DENABLE_EXT=$(usex extjs)
-		-DENABLE_GM=$(usex graphicsmagick)
+		-DWT_WRASTERIMAGE_IMPLEMENTATION=$(usex graphicsmagick GraphicsMagick none)
+		-DENABLE_FIREBIRD=$(usex firebird)
 		-DENABLE_HARU=$(usex pdf)
-		-DENABLE_POSTGRES=$(usex postgres)
-		-DENABLE_SQLITE=$(usex sqlite)
 		-DENABLE_MYSQL=$(usex mysql)
+		-DENABLE_POSTGRES=$(usex postgres)
+		-DENABLE_QT4=OFF
+		-DENABLE_QT5=$(usex qt5)
+		-DENABLE_SQLITE=$(usex sqlite)
+		-DENABLE_SSL=$(usex ssl)
 		-DCONNECTOR_FCGI=$(usex fcgi)
 		-DCONNECTOR_HTTP=$(usex server)
-		-DWT_WITH_SSL=$(usex ssl)
-		-DHTTP_WITH_ZLIB=$(usex zlib)
-		-DINSTALL_RESOURCES=$(usex resources)
 		-DBUILD_EXAMPLES=OFF
 	)
 
-	cmake-utils_src_configure
+	cmake_src_configure
 }
 
 src_test() {
@@ -111,18 +102,6 @@ src_test() {
 	fi
 }
 
-src_install() {
-
-	dodir \
-		/var/lib/wt \
-		/var/lib/wt/home
-
-	cmake-utils_src_install
-
-	use doc && dohtml -A pdf,xhtml -r doc/*
-
-}
-
 pkg_postinst() {
 	if use fcgi; then
 		elog "You selected fcgi support. Please make sure that the web-server"
@@ -130,12 +109,4 @@ pkg_postinst() {
 		elog "You can use spawn-fcgi to spawn the witty-processes and run them"
 		elog "in a chroot environment."
 	fi
-
-	chown -R wt:wt \
-		"${ROOT}"/var/lib/wt
-
-	chmod 0750 \
-		"${ROOT}"/var/lib/wt \
-		"${ROOT}"/var/lib/wt/home
-
 }

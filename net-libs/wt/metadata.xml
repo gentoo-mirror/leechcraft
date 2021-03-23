@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>0xd34df00d@gmail.com</email>
+		<name>0xd34df00d</name>
+	</maintainer>
+	<use>
+		<flag name="fcgi">Compile in FCGI connector (libwtfcgi)</flag>
+		<flag name="graphicsmagick">Enable raster image support (WRasterImage)</flag>
+		<flag name="resources">Install resources directory</flag>
+		<flag name="server">Compile in stand-alone httpd connector (libwthttp)</flag>
+	</use>
+</pkgmetadata>
