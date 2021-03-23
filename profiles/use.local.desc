@@ -68,3 +68,7 @@ dev-libs/vmime:pop3 - Enable POP3 protocol.
 dev-libs/vmime:sendmail - Enable Sendmail protocol.
 dev-libs/vmime:smtp - Enable SMTP protocol.
 net-libs/qxmpp:vpx - Enable VP8 codec support via media-libs/libvpx
+net-libs/wt:fcgi - Compile in FCGI connector (libwtfcgi)
+net-libs/wt:graphicsmagick - Enable raster image support (WRasterImage)
+net-libs/wt:resources - Install resources directory
+net-libs/wt:server - Compile in stand-alone httpd connector (libwthttp)
