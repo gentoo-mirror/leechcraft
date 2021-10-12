@@ -13,7 +13,6 @@ IUSE="debug mysql postgres +sqlite"
 
 DEPEND="
 	~app-leechcraft/lc-core-${PV}[postgres?]
-	dev-qt/qtcore:5
 	dev-qt/qtnetwork:5
 	dev-qt/qtprintsupport:5
 	dev-qt/qtsql:5
