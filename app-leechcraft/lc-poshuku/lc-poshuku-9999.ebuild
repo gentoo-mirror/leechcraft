@@ -10,7 +10,7 @@ DESCRIPTION="Poshuku, the full-featured web browser plugin for LeechCraft"
 SLOT="0"
 KEYWORDS=""
 IUSE="+autosearch debug +dcac +cleanweb +fatape +filescheme +foc +fua +idn +keywords +onlinebookmarks
-	  postgres qrd +speeddial +sqlite webengine +webkit"
+postgres qrd +speeddial +sqlite +webengine"
 
 DEPEND="~app-leechcraft/lc-core-${PV}[postgres?]
 	dev-qt/qtnetwork:5
@@ -21,7 +21,6 @@ DEPEND="~app-leechcraft/lc-core-${PV}[postgres?]
 	cleanweb? ( dev-qt/qtconcurrent:5 )
 	idn? ( net-dns/libidn:= )
 	qrd? ( media-gfx/qrencode:= )
-	webkit? ( dev-qt/qtwebkit:5 )
 	webengine? ( dev-qt/qtwebengine:5 )
 "
 RDEPEND="${DEPEND}
@@ -29,8 +28,7 @@ RDEPEND="${DEPEND}
 	virtual/leechcraft-downloader-http
 "
 
-REQUIRED_USE="|| ( postgres sqlite )
-	|| ( webkit webengine )"
+REQUIRED_USE="|| ( postgres sqlite )"
 
 src_configure() {
 	local mycmakeargs=(
@@ -46,7 +44,6 @@ src_configure() {
 		-DENABLE_POSHUKU_ONLINEBOOKMARKS=$(usex onlinebookmarks)
 		-DENABLE_POSHUKU_QRD=$(usex qrd)
 		-DENABLE_POSHUKU_SPEEDDIAL=$(usex speeddial)
-		-DENABLE_POSHUKU_WEBKITVIEW=$(usex webkit)
 		-DENABLE_POSHUKU_WEBENGINEVIEW=$(usex webengine)
 	)
 
