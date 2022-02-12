@@ -14,7 +14,7 @@ IUSE="debug"
 DEPEND="~app-leechcraft/lc-core-${PV}
 	app-text/tidy-html5
 	dev-qt/qtnetwork:5
-	dev-qt/qtwebkit:5
+	dev-qt/qtwebengine:5
 	dev-qt/qtwidgets:5
 "
 RDEPEND="${DEPEND}"
