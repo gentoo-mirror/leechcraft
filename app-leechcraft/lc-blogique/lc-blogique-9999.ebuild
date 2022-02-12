@@ -16,7 +16,6 @@ DEPEND="
 	dev-qt/qtdeclarative:5
 	dev-qt/qtprintsupport:5
 	dev-qt/qtsql:5
-	dev-qt/qtwebkit:5
 	dev-qt/qtxml:5
 	metida? (
 		dev-qt/qtnetwork:5
