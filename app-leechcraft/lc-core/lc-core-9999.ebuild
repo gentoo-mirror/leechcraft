@@ -23,7 +23,6 @@ DEPEND="
 	dev-qt/qtnetwork:5[ssl]
 	dev-qt/qtscript:5
 	dev-qt/qtsql:5
-	dev-qt/qtwebkit:5
 	dev-qt/qtwidgets:5
 	dev-qt/qtx11extras:5
 	dev-qt/qtxml:5

@@ -11,8 +11,5 @@ SLOT="0"
 KEYWORDS=""
 IUSE="debug"
 
-DEPEND="~app-leechcraft/lc-core-${PV}
-	dev-qt/qtnetwork:5
-	dev-qt/qtwebkit:5
-"
+DEPEND="~app-leechcraft/lc-core-${PV}"
 RDEPEND="${DEPEND}"

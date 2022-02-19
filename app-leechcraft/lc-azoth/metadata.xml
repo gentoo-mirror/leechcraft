@@ -24,7 +24,6 @@
 		<flag name="juick">Build plugin for the Juick.com microblogging service</flag>
 		<flag name="keeso">Build plugin for changing text into SoMEtHInG lIKe THiS</flag>
 		<flag name="lastseen">Build plugin for client-side recording of the last online/available time</flag>
-		<flag name="media">Enable media calls</flag>
 		<flag name="metacontacts">Build plugin for metacontacts support</flag>
 		<flag name="murm">Build Murm, the VKontakte messaging support via their native API (instead of XMPP)</flag>
 		<flag name="nativeemoticons">Build support for native Azoth's emoticons packs</flag>
