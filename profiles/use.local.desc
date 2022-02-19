@@ -16,7 +16,6 @@ app-leechcraft/lc-azoth:isterique - Build Isterique plugin for neutralizing exce
 app-leechcraft/lc-azoth:juick - Build plugin for the Juick.com microblogging service
 app-leechcraft/lc-azoth:keeso - Build plugin for changing text into SoMEtHInG lIKe THiS
 app-leechcraft/lc-azoth:lastseen - Build plugin for client-side recording of the last online/available time
-app-leechcraft/lc-azoth:media - Enable media calls
 app-leechcraft/lc-azoth:metacontacts - Build plugin for metacontacts support
 app-leechcraft/lc-azoth:murm - Build Murm, the VKontakte messaging support via their native API (instead of XMPP)
 app-leechcraft/lc-azoth:nativeemoticons - Build support for native Azoth's emoticons packs
