@@ -1,9 +1,9 @@
 # Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=8
 
-inherit cmake-utils git-r3
+inherit cmake git-r3
 
 DESCRIPTION="VMime mail library"
 HOMEPAGE="https://github.com/kisli/vmime"
@@ -47,5 +47,5 @@ src_configure() {
 		mycmakeargs+=( -DVMIME_HAVE_TLS_SUPPORT=$(usex ssl) -DVMIME_TLS_SUPPORT_LIB=$(usex gnutls gnutls openssl) )
 	fi
 
-	cmake-utils_src_configure
+	cmake_src_configure
 }
