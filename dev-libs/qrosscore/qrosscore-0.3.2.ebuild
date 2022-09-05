@@ -1,9 +1,9 @@
 # Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=8
 
-inherit cmake-utils
+inherit cmake
 
 DESCRIPTION="KDE-free version of Kross (core libraries and Qt Script backend)"
 HOMEPAGE="https://github.com/0xd34df00d/Qross"
