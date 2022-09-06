@@ -1,9 +1,9 @@
 # Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=8
 
-inherit cmake-utils git-r3
+inherit cmake git-r3
 
 EGIT_REPO_URI="https://github.com/0xd34df00d/Qross.git"
 
