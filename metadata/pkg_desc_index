@@ -1,3 +1,4 @@
+app-leechcraft/laretz 9999: The Laretz sync server
 app-leechcraft/lc-advancednotifications 9999: Flexible and customizable notifications framework for LeechCraft
 app-leechcraft/lc-aggregator 9999: Full-featured RSS/Atom feed reader for LeechCraft
 app-leechcraft/lc-anhero 9999: AnHero, crash handler for LeechCraft
@@ -69,6 +70,8 @@ app-leechcraft/lcpackgen 1.3.1: Package creator for app-leechcraft/lc-lackman pa
 app-leechcraft/leechcraft-meta 9999: Metapackage containing all ready-to-use LeechCraft plugins
 app-leechcraft/liblaretz 0.1.2 9999: Shared library to be used by the Laretz sync server and its clients
 dev-libs/kqoauth 0.98-r3: Library for Qt that implements the OAuth 1.0 authentication specification
+dev-libs/qrosscore 0.3.2 9999: KDE-free version of Kross (core libraries and Qt Script backend)
+dev-libs/vmime 9999: VMime mail library
 net-libs/qxmpp 1.2.0 1.4.0 9999: A cross-platform C++ XMPP client library based on the Qt framework
 net-libs/wt 4.6.2: C++ library for developing interactive web applications.
 virtual/leechcraft-browser 9999: Virtual for LeechCraft plugins providing a web browser
