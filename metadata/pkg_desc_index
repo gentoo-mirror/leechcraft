@@ -73,6 +73,7 @@ dev-libs/kqoauth 0.98-r3: Library for Qt that implements the OAuth 1.0 authentic
 dev-libs/qrosscore 0.3.2 9999: KDE-free version of Kross (core libraries and Qt Script backend)
 dev-libs/vmime 9999: VMime mail library
 net-libs/qxmpp 1.2.0 1.4.0 9999: A cross-platform C++ XMPP client library based on the Qt framework
+net-libs/wt 4.8.1: C++ library for developing interactive web applications.
 virtual/leechcraft-browser 9999: Virtual for LeechCraft plugins providing a web browser
 virtual/leechcraft-downloader-http 9999: Virtual for LeechCraft plugins providing HTTP downloading
 virtual/leechcraft-notifier 9999: Virtual for LeechCraft plugins capable of visually notifying the user
