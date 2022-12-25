@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit cmake eutils user
+inherit cmake eutils
 
 DESCRIPTION="C++ library for developing interactive web applications."
 MY_P=${P/_/-}
@@ -48,9 +48,6 @@ pkg_setup() {
 	if use test && use !sqlite; then
 		ewarn "Tests need sqlite, disabling."
 	fi
-
-	enewgroup wt
-	enewuser wt -1 -1 /var/lib/wt/home wt
 }
 
 src_prepare() {
