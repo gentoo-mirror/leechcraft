@@ -9,5 +9,5 @@ LICENSE=LGPL-2.1
 RDEPEND=dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtxml:5
 SLOT=0
 SRC_URI=https://github.com/kypeli/kQOAuth/archive/0.98.tar.gz -> kqoauth-0.98.tar.gz
-_eclasses_=multilib	c19072c3cd7ac5cb21de013f7e9832e0	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	qmake-utils	dc3c4c93818f11a547a93d71d3f180f1
+_eclasses_=multilib	c19072c3cd7ac5cb21de013f7e9832e0	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	qmake-utils	a9633c59de46f2f1e040e40d06658a60
 _md5_=d202af1a50d8d972b2b36fd5a93031bd
