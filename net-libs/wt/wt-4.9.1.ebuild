@@ -54,12 +54,6 @@ src_prepare() {
 	# just to be sure
 	rm -rf Wt/Dbo/backend/amalgamation
 
-	# fix png linking
-	if use pdf; then
-		sed -e 's/-lpng12/-lpng/' \
-			-i cmake/WtFindHaru.txt || die
-	fi
-
 	cmake_src_prepare
 }
 
