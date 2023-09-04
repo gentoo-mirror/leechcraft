@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit cmake eutils
+inherit cmake
 
 DESCRIPTION="C++ library for developing interactive web applications."
 MY_P=${P/_/-}
