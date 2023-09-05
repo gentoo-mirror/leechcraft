@@ -1,9 +1,9 @@
 # Copyright 2000-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-inherit cmake eutils
+inherit cmake
 
 DESCRIPTION="C++ library for developing interactive web applications."
 MY_P=${P/_/-}
@@ -54,12 +54,6 @@ src_prepare() {
 	# just to be sure
 	rm -rf Wt/Dbo/backend/amalgamation
 
-	# fix png linking
-	if use pdf; then
-		sed -e 's/-lpng12/-lpng/' \
-			-i cmake/WtFindHaru.txt || die
-	fi
-
 	cmake_src_prepare
 }
 
@@ -78,7 +72,6 @@ src_configure() {
 		-DENABLE_HARU=$(usex pdf)
 		-DENABLE_MYSQL=$(usex mysql)
 		-DENABLE_POSTGRES=$(usex postgres)
-		-DENABLE_QT4=OFF
 		-DENABLE_QT5=$(usex qt5)
 		-DENABLE_SQLITE=$(usex sqlite)
 		-DENABLE_SSL=$(usex ssl)
