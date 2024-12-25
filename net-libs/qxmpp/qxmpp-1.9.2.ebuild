@@ -16,17 +16,12 @@ IUSE="doc gstreamer omemo test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
-	dev-qt/qtcore:5
-	dev-qt/qtnetwork:5[ssl]
-	dev-qt/qtxml:5
+	dev-qt/qtbase:6[network,ssl,xml]
 	gstreamer? ( media-libs/gstreamer )
 	omemo? (
-		app-crypt/qca:2[qt5(+)]
+		app-crypt/qca:2[qt6(+)]
 		net-libs/libomemo-c
 	)
-"
-DEPEND="${RDEPEND}
-	test? ( dev-qt/qttest:5 )
 "
 BDEPEND="
 	doc? ( app-text/doxygen )
@@ -41,7 +36,7 @@ src_configure() {
 		-DBUILD_OMEMO=$(usex omemo)
 		-DWITH_QCA=$(usex omemo)
 		-DWITH_GSTREAMER=$(usex gstreamer)
-		-DQT_VERSION_MAJOR=5
+		-DQT_VERSION_MAJOR=6
 	)
 
 	cmake_src_configure
