@@ -66,6 +66,7 @@ app-leechcraft/leechcraft-meta:de - Install components that allow using LeechCra
 dev-libs/vmime:pop3 - Enable POP3 protocol.
 dev-libs/vmime:sendmail - Enable Sendmail protocol.
 dev-libs/vmime:smtp - Enable SMTP protocol.
+media-libs/liblastfm:fingerprint - Build the lastfm-fingerprint library
 net-libs/qxmpp:omemo - Enable OMEMO encryption
 net-libs/wt:fcgi - Compile in FCGI connector (libwtfcgi)
 net-libs/wt:graphicsmagick - Enable raster image support (WRasterImage)
