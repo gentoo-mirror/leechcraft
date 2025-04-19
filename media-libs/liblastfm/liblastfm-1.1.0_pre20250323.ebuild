@@ -3,12 +3,12 @@
 
 EAPI=8
 
-COMMIT=2e8e40d78a331d8e39fe39113bcb7571a7b1d4d6
+COMMIT=cf7bdc8180ee5770fa346ead4a763b8eb17abe17
 inherit cmake flag-o-matic
 
 DESCRIPTION="Collection of libraries to integrate Last.fm services"
-HOMEPAGE="https://github.com/drfiemost/liblastfm"
-SRC_URI="https://github.com/drfiemost/liblastfm/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
+HOMEPAGE="https://github.com/0xd34df00d/liblastfm"
+SRC_URI="https://github.com/0xd34df00d/liblastfm/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/${PN}-${COMMIT}"
 
 LICENSE="GPL-3"
